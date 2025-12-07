@@ -16,7 +16,7 @@
     *{box-sizing:border-box}
     body {
       margin: 0;
-      font-family: 'Great Vibes', cursive;
+      font-family: 'Courgette', cursive;
       background: linear-gradient(135deg, var(--bg1), var(--bg2));
       color: var(--text);
       display: flex;
@@ -34,11 +34,7 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
       animation: fadeIn 1.2s ease;
     }
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-      color: #d94f70;
-    }
+    h1 { text-align: center; margin-bottom: 10px; color: #d94f70; font-family: 'Quicksand', sans-serif; font-weight: 600; }
     p {
       line-height: 1.6;
       font-size: 1.05rem;
@@ -100,8 +96,11 @@
   #hug-btn { display: block; margin: 40px auto; }
 #wrapper { width: 90%; max-width: 700px; margin: 20px auto; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 @media (max-width: 600px) { #wrapper { padding: 16px; border-radius: 16px; } }
+.floating-sunflowers span{position:absolute; left:50%; transform:translateX(-50%); bottom:-20px; font-size:1.6rem; opacity:0.9; animation:floatHearts 7s linear infinite;}
+.floating-sunflowers span:nth-child(2){left:25%; animation-duration:8s; font-size:1.4rem}
+.floating-sunflowers span:nth-child(3){left:75%; animation-duration:6.5s; font-size:1.5rem}
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Courgette&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="card">
@@ -124,7 +123,7 @@ Oiii, minha princesa, eu quero comemorar agora nosso primeiro ano de namoro, o p
       <h2 style="text-align:center; color:var(--accent); margin-bottom:12px">Nossa Linha do Tempo 💛</h2>
       <ul style="list-style:none; padding:0; font-size:1.02rem; line-height:1.6; margin:0;">
         <li><strong>📅 24/10/2024:</strong> A gente se conheceu.</li>
-        <li><strong>💋 Primeiro beijo:</strong> Ainda não aconteceu (mas logo vem 😳).</li>
+        <li><strong>💋 Primeiro beijo:</strong> Ainda não aconteceu mas vai 😝.</li>
         <li><strong>💛 08/12/2024:</strong> Começamos a namorar.</li>
         <li><strong>📸 Momento marcante:</strong> Quando a gente se viu por fotos.</li>
       </ul>
@@ -188,5 +187,10 @@ Oiii, minha princesa, eu quero comemorar agora nosso primeiro ano de namoro, o p
       });
     })();
   </script>
+  <div class="floating-sunflowers" aria-hidden="true">
+    <span>🌻</span>
+    <span>🌻</span>
+    <span>🌻</span>
+  </div>
 </body>
 </html>
