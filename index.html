@@ -3,476 +3,678 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>💛Nosso 1 Ano💛</title>
+  <title>Para você, Mika 💜</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg1: #fff6c9;
-      --bg2: #ffe9a3;
-      --card: #ffffff;
-      --accent: #d4a200;
-      --soft: #ffd86b;
-      --text: #333;
+      --bg1: #fffaf0;            /* warm very light */
+      --bg2: #fff6dc;            /* subtle yellow */
+      --card: #fffdf6;           /* card background */
+      --ink: #5c3b17;            /* dark caramel/brown text */
+      --muted: #8a5b2e;          /* muted brown/gold */
+      --accent: #f5b400;        /* bright yellow */
+      --accent2: #ffcf66;       /* softer yellow */
+      --line: rgba(0,0,0,.08);  /* light divider */
+      --shadow: 0 12px 40px rgba(0,0,0,.08);
+      --radius: 18px;
     }
+
     *{box-sizing:border-box}
-    body {
-      margin: 0;
-      font-family: 'Courgette', cursive;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2));
-      color: var(--text);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(245,180,0,.14), transparent 60%),
+        radial-gradient(900px 600px at 80% 20%, rgba(255,204,102,.10), transparent 60%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
     }
-    .card {
-      background: var(--card);
-      padding: 36px;
-      border-radius: 20px;
-      max-width: 800px;
-      width: 100%;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      animation: fadeIn 1.2s ease;
+
+    .wrap{
+      width:min(980px, 92vw);
+      margin: 40px auto 90px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      position:relative;
+      z-index:2;
     }
-    h1 { text-align: center; margin-bottom: 10px; color: #d94f70; font-family: 'Quicksand', sans-serif; font-weight: 600; }
-    p {
-      line-height: 1.6;
-      font-size: 1.05rem;
-      text-align: center;
-      margin-bottom: 20px;
-      white-space: pre-wrap;
+
+    header{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      padding: 18px 18px 6px;
     }
-    .heart {
-      font-size: 40px;
-      text-align: center;
-      animation: pulse 1.5s infinite;
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
     }
-    button.primary{
-      padding:12px 20px;
-      background:var(--soft);
-      border:none;
-      border-radius:12px;
-      font-size:1rem;
+    h1{
+      font-family: "Playfair Display", serif;
+      margin:0;
+      font-weight:600;
+      letter-spacing:.2px;
+      font-size: clamp(28px, 4.4vw, 42px);
+      line-height:1.05;
+    }
+    .subtitle{
+      color:var(--muted);
+      font-size: 14px;
+      line-height:1.3;
+    }
+
+    .pillbar{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.03);
+      padding:10px 12px;
+      border-radius: 999px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.20);
+      backdrop-filter: blur(10px);
+    }
+    .pill b{font-weight:600}
+    .btn{
       cursor:pointer;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.04);
+      color:var(--ink);
+      padding:10px 12px;
+      border-radius: 999px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      transition: transform .12s ease, background .2s ease;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
+    .btn:active{ transform: translateY(0px) scale(.99); }
+    .btn small{opacity:.8}
+
+    /* Volume control */
+    .volumeControl{ display:flex; align-items:center; gap:8px; }
+    .volumeControl input[type="range"]{
+      width:120px;
+      appearance:none;
+      -webkit-appearance:none;
+      height:6px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+      border-radius:6px;
+      outline:none;
+    }
+    .volumeControl input[type="range"]::-webkit-slider-thumb{
+      -webkit-appearance:none;
+      width:14px; height:14px; border-radius:50%; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.12);
+    }
+    .volumeControl .volLabel{ font-size:12px; color:var(--muted); }
+
+    .btn:focus-visible, .envelope:focus-visible, .seal:focus-visible{
+      outline: 3px solid rgba(245,180,0,.25);
+      outline-offset: 4px;
+      border-radius: 12px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+    }
+    @media (max-width: 900px){
+      header{align-items:flex-start; flex-direction:column}
+      .pillbar{justify-content:flex-start}
+      .grid{grid-template-columns: 1fr;}
+    }
+
+    .card{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+      overflow:hidden;
+    }
+
+    /* Envelope / carta */
+    .envelope-area{
+      padding: 18px;
+    }
+    .envelope{
+      width:min(520px, 100%);
+      margin: 10px auto 0;
+      position:relative;
+      aspect-ratio: 16/11;
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(245,180,0,.14), rgba(255,255,255,.02));
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow: 0 18px 50px rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+
+    .envelope .base{
+      position:absolute; inset:0;
+      background: radial-gradient(900px 400px at 20% 20%, rgba(245,180,0,.10), transparent 55%),
+                  radial-gradient(700px 400px at 80% 20%, rgba(255,204,102,.08), transparent 55%),
+                  rgba(255,255,255,.02);
+    }
+
+    .envelope .flap{
+      position:absolute; left:-10%; right:-10%; top:-25%;
+      height:70%;
+      background: linear-gradient(180deg, rgba(0,0,0,.03), rgba(0,0,0,.01));
+      border-bottom: 1px solid rgba(0,0,0,.04);
+      transform-origin: bottom center;
+      transform: rotateX(0deg);
+      transition: transform .75s cubic-bezier(.2,.9,.2,1);
+      filter: drop-shadow(0 20px 20px rgba(0,0,0,.25));
+    }
+    .envelope .flap:after{
+      content:"";
+      position:absolute; inset:0;
+      clip-path: polygon(50% 100%, 0 0, 100% 0);
+      background: linear-gradient(180deg, rgba(245,180,0,.12), rgba(255,255,255,.02));
+    }
+
+    .seal{
+      position:absolute;
+      left:50%; top:52%;
+      transform: translate(-50%, -50%);
+      width: 76px; height: 76px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(245,180,0,.95));
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+      display:grid; place-items:center;
+      transition: transform .18s ease;
+    }
+    .seal:hover{ transform: translate(-50%, -50%) rotate(-1deg); }
+    .seal span{
+      font-family:"Playfair Display", serif;
+      font-weight:600;
+      letter-spacing:.5px;
+    }
+
+    .letter{
+      position:absolute;
+      left:8%; right:8%;
+      bottom:10%;
+      height:76%;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.98));
+      border: 1px solid rgba(0,0,0,.06);
+      padding: 18px 18px 16px;
+      transform: translateY(32%) scale(.96);
+      opacity:0;
+      transition: transform .7s cubic-bezier(.2,.9,.2,1), opacity .5s ease;
+      overflow:auto;
+      color: var(--ink);
+    }
+
+    /* versão estática da letter quando não há envelope */
+    .letter.static{
+      position:relative;
+      left:auto; right:auto; bottom:auto;
+      height:auto;
+      transform:none;
+      opacity:1;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border-radius: 14px;
+      padding: 20px;
+      overflow:visible;
+    }
+    .letter h2{
+      margin:0 0 10px;
+      font-family:"Playfair Display", serif;
+      font-weight:600;
+      letter-spacing:.2px;
+      font-size: 22px;
+      color: var(--ink);
+    }
+    .letter p{
+      margin:0 0 12px;
+      color: var(--ink);
+      line-height:1.55;
+      font-size: 15px;
+    }
+    .letter p:last-child{margin-bottom:0}
+
+    .openHint{
+      position:absolute;
+      bottom:10px; left:0; right:0;
+      text-align:center;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing:.2px;
+      padding: 0 10px;
+      user-select:none;
+    }
+
+    .envelope.isOpen .flap{
+      transform: rotateX(165deg);
+    }
+    .envelope.isOpen .letter{
+      transform: translateY(0%) scale(1);
+      opacity:1;
+    }
+
+    /* Seções */
+    .section{
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .section h3{
+      margin:0;
+      font-family:"Playfair Display", serif;
+      font-size: 22px;
+      font-weight:600;
+      letter-spacing:.2px;
+    }
+    .section p{
+      margin:0;
+      color: var(--ink);
+      line-height:1.55;
+      font-size: 14.5px;
+    }
+
+    .counter{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      margin-top:8px;
+    }
+    .stat{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.16);
+      border-radius: 18px;
+      padding: 12px;
+      text-align:center;
+    }
+    .stat b{
+      display:block;
+      font-size: 22px;
+      letter-spacing:.2px;
+      margin-bottom:4px;
+    }
+    .stat span{
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:10px;
+      margin-top:8px;
+    }
+    .ph{
+      aspect-ratio: 4/3;
+      border-radius: 18px;
+      border:1px dashed rgba(255,255,255,.18);
+      background: rgba(0,0,0,.14);
+      display:grid;
+      place-items:center;
+      color: var(--muted);
+      font-size: 12.5px;
+      padding:10px;
+      text-align:center;
+    }
+
+    /* imagens da galeria */
+    .gallery picture{
+      display:block;
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      border-radius:14px;
+    }
+    .gallery picture img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    @media (max-width: 520px){
+      .gallery{grid-template-columns: 1fr;}
+      .counter{grid-template-columns: 1fr;}
+    }
+
+    /* Botão PS */
+    .ps{
+      margin-top:8px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .ps .secret{
+      display:none;
+      border-left: 3px solid rgba(245,180,0,.75);
+      padding-left: 12px;
+      color: var(--ink);
+    }
+    .ps .secret.show{display:block;}
+
+    /* corações caindo */
+    .hearts{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+      overflow:hidden;
+    }
+    .heart{
+      position:absolute;
+      top:-40px;
+      font-size: 18px;
+      opacity:.95;
+      animation: fall linear forwards;
+      filter: drop-shadow(0 8px 10px rgba(0,0,0,.08));
+    }
+    @keyframes fall{
+      to{ transform: translateY(calc(100vh + 80px)); opacity:.95; }
+    }
+
+    footer{
+      margin-top: 6px;
+      text-align:center;
+      color: rgba(92,59,23,.65);
+      font-size: 12px;
+      padding: 10px 0 0;
+    }
+
+    .badge{
       display:inline-block;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      margin-top: 10px;
     }
-    .center{display:block;margin:0 auto}
-    .timeline{
-      margin-top:30px;
-      padding:20px;
-      background:#fff7d1;
-      border-radius:15px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.04);
-    }
-
-    /* modal */
-    #cardModal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); backdrop-filter: blur(3px); justify-content:center; align-items:center;}
-    #cardModal .modal-inner{background:white; padding:22px; border-radius:18px; width:90%; max-width:420px; text-align:center; box-shadow:0 6px 22px rgba(0,0,0,0.18);}
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.12); }
-      100% { transform: scale(1); }
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* floating hearts container (empty element will generate hearts via pseudo elements) */
-    .floating-hearts{position:fixed; inset:0; pointer-events:none;}
-    .floating-hearts span{position:absolute; left:50%; transform:translateX(-50%); bottom:-20px; font-size:1.4rem; opacity:0.9; animation:floatHearts 6s linear infinite;}
-    .floating-hearts span:nth-child(2){left:30%; animation-duration:7s; font-size:1.1rem}
-    .floating-hearts span:nth-child(3){left:70%; animation-duration:5.5s; font-size:1.3rem}
-    @keyframes floatHearts {
-      0%{ transform: translateX(-50%) translateY(0); opacity:0.9 }
-      50%{ opacity:0.7 }
-      100%{ transform: translateX(-50%) translateY(-120vh); opacity:0 }
-    }
-
-    /* small responsive tweaks */
-    @media (max-width:480px){ .card{background:var(--card);padding:36px;border-radius:20px;max-width:800px;width:100%;box-shadow:0 0 45px rgba(255,215,100,0.85);animation:fadeIn 1.2s ease;} p{font-size:1rem} }
-  #hug-btn { display: block; margin: 40px auto; }
-#wrapper { width: 90%; max-width: 700px; margin: 20px auto; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-@media (max-width: 600px) { #wrapper { padding: 16px; border-radius: 16px; } }
-.floating-sunflowers span{position:absolute; left:50%; transform:translateX(-50%); bottom:-20px; font-size:1.6rem; opacity:0.9; animation:floatHearts 7s linear infinite;}
-.floating-sunflowers span:nth-child(2){left:25%; animation-duration:8s; font-size:1.4rem}
-.floating-sunflowers span:nth-child(3){left:75%; animation-duration:6.5s; font-size:1.5rem}
-@keyframes escreverSuave {
-  0% { width: 0; }
-  60% { width: 100%; }
-  80% { width: 100%; }
-  100% { width: 0; }
-}
-@keyframes cursor { 0% { border-color: transparent; } 50% { border-color: #a38400; } 100% { border-color: transparent; } }
-
-:root.red-theme{
-  --bg1: #ffd2d2;
-  --bg2: #ffb3b3;
-  --card: #ffffff;
-  --accent: #ff4b4b;
-  --soft: #ff8080;
-  --text: #3a0000;
-}
-
-button#themeToggle{ position:fixed; top:20px; right:20px; padding:10px 16px; background:var(--soft); border:none; border-radius:12px; font-size:0.9rem; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.15); z-index:999; }
-/* 1. Brilhinhos dourados */
-.sparkles span{position:absolute; width:6px; height:6px; background:#ffd86b; border-radius:50%; animation:sparkle 4s infinite ease-in-out; opacity:0.8}
-@keyframes sparkle{0%{transform:translateY(0) scale(0.5);opacity:.6}50%{opacity:1}100%{transform:translateY(-120vh) scale(1);opacity:0}}
-/* Título coração batendo */
-h1{animation:heartBeat 2.4s infinite ease-in-out}
-@keyframes heartBeat{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
-/* Botão pop */
-    button.primary:active{transform:scale(0.9); transition:0.1s}
-/* Glow dourado no card */
-.card{box-shadow:0 0 25px rgba(255,215,100,0.45)}
-/* Parallax nos girassóis */
-.floating-sunflowers{transform:translateY(var(--scroll-y)); transition:transform 0.2s linear}
-/* Moldura brilhante foto */
-.polaroid-glow{box-shadow:0 0 35px 12px rgba(255,215,100,0.95)!important; filter:brightness(1.25);}
-
-/* Animações melhoradas */
-.text-box {
-  animation: slideInUp 0.8s ease 0.3s backwards;
-}
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Timeline com fade-in */
-.timeline {
-  animation: slideInUp 0.8s ease 0.6s backwards;
-}
-
-/* Foto com efeito de rotação suave */
-.photo-frame {
-  animation: gentleRotate 6s ease-in-out infinite;
-  transform-origin: center;
-}
-
-@keyframes gentleRotate {
-  0%, 100% { transform: rotateY(0deg) rotateX(0deg); }
-  50% { transform: rotateY(2deg) rotateX(-1deg); }
-}
-
-/* Corações decorativos animados */
-.heart-decoration {
-  display: inline-block;
-  animation: heartFloat 3s ease-in-out infinite;
-  margin: 0 8px;
-}
-
-@keyframes heartFloat {
-  0%, 100% { transform: translateY(0); opacity: 1; }
-  50% { transform: translateY(-12px); opacity: 0.8; }
-}
-
-/* Efeito de glow no botão */
-button.primary:hover {
-  box-shadow: 0 6px 16px rgba(255, 215, 100, 0.4);
-  transform: translateY(-2px);
-  transition: all 0.3s ease;
-}
-
-/* Divisor com decoração */
-.divider {
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--soft), transparent);
-  margin: 20px 0;
-  animation: expandWidth 0.8s ease 0.5s backwards;
-}
-
-@keyframes expandWidth {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
-/* Confete / estrelas decorativas */
-.confetti {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  background: var(--soft);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: confettiFall 3s linear forwards;
-}
-
-@keyframes confettiFall {
-  to {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-/* Número com pulsação especial */
-.special-number {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #d94f70;
-  animation: numberPulse 2s ease-in-out infinite;
-}
-
-@keyframes numberPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-}
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Courgette&display=swap" rel="stylesheet">
+  </style>
 </head>
 <body>
 
-<!-- TELA DE BOAS-VINDAS -->
-<div id="welcomeScreen" style="position:fixed; inset:0; background:#ffeb8a; display:flex; justify-content:center; align-items:center; flex-direction:column; z-index:9999; transition: opacity 1.2s ease;">
-  <h2 id="welcomeText" style="font-family:'Quicksand', sans-serif; color:#a07300; font-size:1rem; margin-bottom:20px;">💛 Oii, amor, eu preparei uma surpresa 💛</h2>
-  <button id="openGiftBtn" disabled style="padding:14px 26px; background:#ffd34f; border:none; border-radius:14px; font-size:1.1rem; cursor:not-allowed; box-shadow:0 4px 12px rgba(0,0,0,0.25); font-family:'Quicksand', sans-serif; transition: background 0.3s ease, cursor 0.3s ease;">
-    Tá quase lá... (Calculando)
-  </button>
-</div>
-<button id="themeToggle">Mudar Tema ❤️</button>
-  <div class="card">
-    <h1>Feliz 1 Ano, meu amor ❤️</h1>
-    
-    <!-- Decoração superior -->
-    <div style="text-align: center; margin-bottom: 20px; letter-spacing: 12px; font-size: 1.4rem;">
-      <span class="heart-decoration">💛</span>
-      <span class="heart-decoration" style="animation-delay: 0.3s;">💛</span>
-      <span class="heart-decoration" style="animation-delay: 0.6s;">💛</span>
+  <div class="hearts" id="hearts"></div>
+
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>Para você, Mika 💛</h1>
+        <div class="subtitle">Fiz esse site por você, porque tu é tu.</div>
+      </div>
+
+      <div class="pillbar">
+        <div class="pill">
+          <b id="now" aria-live="polite">—</b>
+          <span style="color:var(--muted); font-size:12px;">agora</span>
+        </div>
+
+        <button class="btn" id="musicBtn" aria-label="Tocar música">
+          🎵 <span id="musicLabel">Tocar</span> <small>(clique)</small>
+        </button>
+          <div class="volumeControl" aria-hidden="false">
+            <input id="volume" type="range" min="0" max="100" value="60" aria-label="Volume da música">
+            <div class="volLabel" id="volLabel">60%</div>
+          </div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Texto estático (substitui a carta interativa) -->
+      <div class="card envelope-area">
+        <div class="section">
+          <div class="letter static" id="letter">
+            <h2>Minha Mikinha…</h2>
+            <p>
+              sabia que frequentemente eu penso "caramba, como que eu consegui conquistar a mikaelly? de onde veio toda essa sorte?". e eu penso e repenso isso a cada vez que eu paro pra perceber seus detalhes, suas qualidades, me deixa mais reflexivo. mas eu sempre me lembro que eu realmente comecei a te amar por você ser você, porquê você é você, meu amor, e nada pode tirar a sua forma de ser tão genuina e verdadeira, e isso é algo tão significativo pra mim, é tão incrível namorar alguém verdadeira, você em si é incrível, minha garota. eu me sinto muito orgulhoso quando vejo que você está feliz, quando está se sentindo bem, sem preocupações, mesmo sendo difícil, mas é muito bom te ver assim, e eu tento fazer isso acontecer com mais frequência, te deixar mais feliz assim como você me fez um garoto muito mais feliz, a ponto das pessoas me perguntarem "o que foi que tu anda tão feliz, breno?", isso me faz perceber que você é a coisa mais importante na minha vida agora, e que sem você eu voltaria a ser só mais um garoto por aí, sem rumo, sem grandes sonhos. por falar em sonhos, não vejo a hora de realizar nosso maior sonho juntos, nos encontrar pessoalmente, matar toda essa vontade de se ver, sem poder, sem ter condições, fazer o que casais fazem quando namoram presencialmente, eu quero tanto fazer tudo isso contigo, só nós dois, você e eu, eu e você. eu te daria todo um jardim de girassóis pra que você cuidasse de todos eles igual cuida de mim, com muito amor, carinho e delicadeza. te daria o mundo se pudesse, te daria cada estrela do céu, ou escolheria a estrela mais brilhante no céu pra chamar de Mika, pra sempre que eu ver ela, lembrar de você, e saber que você está longe mas perto ao mesmo tempo, saber que minha princesa está me esperando, esperando o nosso beijo que a gente tá guardando até hoje, mas pode ter certeza que um dia a gente vai realizar nosso desejo, vamos viver de abraços, beijos, carinho, cuidado, amor, isso nunca irá faltar, neném. eu te amo por completa, minha princesa, e não te amo por acaso, eu te amo porque tu é tu, minha mikinha que tanto amo, minha garota que eu sempre sonhei em namorar, que desejei a Deus para encontrar, que rezo todos os dias para que fique bem, que fiquemos bem juntinhos. eu te entrego meu coração em tuas mãos, neném, ele é todo e somente seu, cuida bem dele para que ele sempre se sinta seguro contigo, assim como eu estou tentando cuidar do seu coração, que é o que eu mais amo em você, obrigado por tudo que você faz por mim, você é simplismente a garota mais incrível do mundo, a melhor namorada do mundo, e eu sou muito grato por ter você na minha vida, por mudar tudo o que eu vivi, por melhorar meu humor, meu carisma, minha pessoa, aprendi tantas coisas contigo que eu vou levar pra vida, você realmente é muito importante pra mim, neném, e vai continuar sendo pra sempre, eu te amo muuuiiiito, minha linda, e quero que saiba que eu irei te aamar pra sempre, para o eterno sempre.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lado direito: contador + galeria + ps -->
+      <div class="card section">
+        <h3>Nosso tempo</h3>
+        <p>Um lembrete bobo e lindo de que a gente tá construindo algo real, mesmo de longe.</p>
+
+        <div class="counter" id="counter">
+          <div class="stat"><b id="days" aria-live="polite">—</b><span>dias</span></div>
+          <div class="stat"><b id="hours" aria-live="polite">—</b><span>horas</span></div>
+          <div class="stat"><b id="mins" aria-live="polite">—</b><span>minutos</span></div>
+        </div>
+
+        <div style="height:10px"></div>
+
+        <h3>Mini album de fotos suas</h3>
+        <p>Essas são só algumas das fotos suas que eu amo ficar vendo.</p>
+
+        <div class="gallery">
+          <picture>
+            <source srcset="foto1.webp" type="image/webp">
+            <img src="foto1.webp" alt="Foto 1" loading="lazy" decoding="async">
+          </picture>
+          <picture>
+            <source srcset="foto2.webp" type="image/webp">
+            <img src="foto2.webp" alt="Foto 2" loading="lazy" decoding="async">
+          </picture>
+          <picture>
+            <source srcset="foto3.webp" type="image/webp">
+            <img src="foto3.webp" alt="Foto 3" loading="lazy" decoding="async">
+          </picture>
+          <picture>
+            <img src="foto4.jpg" alt="Foto 4" loading="lazy" decoding="async">
+          </picture>
+        </div>
+
+        <div class="ps">
+          <button class="btn" id="psBtn">ps:</button>
+          <div class="secret" id="secret">
+            “Se a gente está juntos até hoje, é porque você e eu fomos feitos um pro outro.”
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Texto principal (o seu texto) -->
-    <div class="text-box" style="background: #fffaeb; border-radius: 18px; padding: 24px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 2px solid #f3e4b2;">
-    <p>
-Oiii Mikaelly, minha princesa, eu quero comemorar agora nosso primeiro ano de namoro, o primeiro de muitos, neném. Eu queria dizer que você me fez um cara tão feliz, tão grato por estar vivo junto contigo, que me faz pensar em casar com você todos os dias, e isso deixou de ser apenas um sonho, e se tornou meu objetivo de vida. Tudo o que eu faço, que falo, é pensando no meu objetivo, que é você, casar com a minha garota dos sonhos, minha princesa, minha lindinha, minha neném ❤️. Por agora infelizmente eu não consigo te presentear com algo físico, por mais que eu queira muito, até porque se eu pudesse eu te daria o mundo inteiro somente pra você, então peço desculpas por isso e espero que você goste dessa surpresa, mas abraça seu macaquinho que eu te dei com meu amor nele 🥺. Nunca esqueça que eu sempre estarei aqui com você, minha neneca, eu me lembro como se fosse ontem da gente conversando 1 ano atrás, eu te pedindo em namoro todo tímido e bobinho, você ter aceitado isso foi a melhor coisa que já aconteceu na minha vida 💗☺️. Eu sou tão orgulho da gente estar juntos depois de todo esse tempo, passando por tanta coisa, a gente esta seguindo firme, mesmo com desavenças as vezes, mas estamos sempre juntinhos um com o outro, e isso me assegura, me deixa alegre, com mais vontade de viver a vida contigo, com nossos futuros filhos. Você é a garota mais perfeita que eu já conheci, eu genuinamente te amo muuuiiiito, minha saguizinha 💗😌. Meu próximo passo eu espero que seja te ver e te dar um abraço tão forte, te encher de beijinhos chorando de alegria, e gratidão por estar contigo, então eu não vejo a hora de poder fazer isso, até lá, estaremos bem aqui juntinhos, fazendo nossas coisinhas. E agora eu quero te dedicar uma música que sempre me faz lembrar de você, pelo meu amor que eu tenho por você, eu te amo, minha garotaaaaaaa!!
-    </p>
-    <p>
-      Assim como a beleza de um Girassol, seus olhos brilham me deixando mais apaixonado a cada dia, me lembrando do quão especial você é pra mim. Espero que goste da música dedicada a você, neném. Obrigado por tudo, minha garota dos sonhos. 
-    </p>
+    <div class="card section" style="text-align:center">
+      <h3>Última parte</h3>
+      <p style="max-width: 70ch; margin: 0 auto;">
+        Esse site não é só uma declaração, neném. <br/>
+        É literalmente uma pequena demonstração do que eu sinto por você.
+      </p>
     </div>
 
-    <!-- Spotify embed -->
-    <iframe style="border-radius:12px; margin-bottom:18px;" src="https://open.spotify.com/embed/track/0d2Ik5rp9Icd1oqn4178x2?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-    <!-- Divisor decorativo -->
-    <div class="divider"></div>
-    <div class="timeline">
-      <h2 style="text-align:center; color:var(--accent); margin-bottom:12px">Nossa Linha do Tempo 💛</h2>
-      <ul style="list-style:none; padding:0; font-size:1.02rem; line-height:2.2; margin:0;">
-        <li style="animation: slideInUp 0.8s ease 0.7s backwards;"><span style="font-size:1.6rem;">📅</span> <strong>21/10/2024:</strong> A gente se conheceu.</li>
-        <li style="animation: slideInUp 0.8s ease 0.8s backwards;"><span style="font-size:1.6rem;">📸</span> <strong>Momento marcante:</strong> Quando eu te vi pela primeira vez, quando você me chamou de amor pela primeira vez.</li>
-        <li style="animation: slideInUp 0.8s ease 0.9s backwards;"><span style="font-size:1.6rem;">💛</span> <strong>08/12/2024:</strong> Começamos a namorar.</li>
-      </ul>
-    </div>
-
-    <div class="heart" style="margin-top:16px;">💖</div>
-
-    <!-- Divisor decorativo -->
-    <div class="divider" style="animation-delay: 1s;"></div>
-
-    <!-- Polaroid Assinatura -->
-<div class="photo-frame" style="width: 220px; margin: 30px auto 10px auto; background: #fffdf6; padding: 14px; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.15); border: 2px solid #f3e4b2; text-align:center; font-family:'Courgette', cursive; animation: slideInUp 0.8s ease 1s backwards;">
-  <img src="https://i.imgur.com/fk9aHQ8.jpeg" style="width:100%; height:180px; object-fit:cover; border-radius:8px;" alt="Foto dela" />
-  <p id="assinatura" style="
-  margin-top:10px;
-  font-size:1rem;
-  color:#a38400;
-  white-space:nowrap;
-  overflow:hidden;
-  border-right:2px solid #a38400;
-  width:0;
-  animation: escreverSuave 4s steps(40) infinite;
-">— Com amor, Breno 💛</p>
-</div>
-
-<!-- Decoração inferior -->
-<div style="text-align: center; margin: 20px 0; letter-spacing: 12px; font-size: 1.2rem; animation: slideInUp 0.8s ease 1.2s backwards;">
-  <span class="heart-decoration" style="animation-delay: 1.2s;">🌻</span>
-  <span class="heart-decoration" style="animation-delay: 1.5s;">💛</span>
-  <span class="heart-decoration" style="animation-delay: 1.8s;">🌻</span>
-</div>
-
-<!-- Botão Abraço (final da página) -->
-    <button id="hugBtn" class="primary" style="display:block; margin:30px auto 0; text-align:center; animation: slideInUp 0.8s ease 1.4s backwards;">🤗 Clique se quiser um abraço 🤗</button>
-
-    <div id="hugEmoji" style="display:none; font-size:4rem; text-align:center; margin-top:18px; animation:pulse 1.5s infinite;">🤗</div>
-
+    <footer>
+      feito por breno, com amor — pra minha Mikinha 💜
+    </footer>
   </div>
 
-  <!-- Floating hearts (decorativo) -->
-  <div class="floating-hearts" aria-hidden="true">
-    <span>💛</span>
-    <span>💛</span>
-    <span>💛</span>
-  </div>
+  <!-- Música (troque o arquivo / link) -->
+  <audio id="music" preload="auto">
+    <!-- DICA: coloque um arquivo .mp3 na mesma pasta e troque o src -->
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
 
-  <!-- Scripts: definições de funções no escopo global -->
   <script>
-    // Definir funções **antes** de qualquer possível chamada inline ou listener
-    (function(){
-    // ... dentro da sua IIFE principal (function(){ ...
+    // ========= CONFIGS =========
+    // Coloque aqui a data que vocês consideram o "começo" (YYYY-MM-DDTHH:MM:SS)
+    const startDate = new Date("2024-12-08T00:00:00");
 
-      // FUNÇÃO PRINCIPAL: Contagem Regressiva para um Horário Específico (23:59)
-      function startCountdownToTime() {
-        const btn = document.getElementById('openGiftBtn');
+    // Quantidade e velocidade dos corações
+    const HEART_SPAWN_MS = 320;
+    const HEART_MIN_DUR = 6;   // segundos
+    const HEART_MAX_DUR = 12;  // segundos
 
-        function updateCountdown() {
-          const now = new Date();
-          
-          // Define a data/hora final (23:59:00 de hoje)
-          const finalTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 00, 00, 00);
-          
-          // Se já passou das 23:59, a contagem deve terminar. 
-          // (No seu caso de 1 ano, talvez o objetivo seja só liberar o presente hoje mesmo)
-          if (now.getTime() > finalTime.getTime()) {
-            clearInterval(interval);
-            btn.textContent = 'Abra para receber 🎁';
-            btn.disabled = false;
-            btn.style.cursor = 'pointer';
-            btn.style.background = '#ffd34f';
-            return;
-          }
+    const heartsEl = document.getElementById("hearts");
+    const envelope = document.getElementById("envelope");
+    const letter = document.getElementById("letter");
+    const openHint = document.getElementById("openHint");
+    const music = document.getElementById("music");
+    const musicBtn = document.getElementById("musicBtn");
+    const musicLabel = document.getElementById("musicLabel");
+    const volumeSlider = document.getElementById('volume');
+    const volLabel = document.getElementById('volLabel');
+    const psBtn = document.getElementById("psBtn");
+    const secret = document.getElementById("secret");
 
-          const distance = finalTime.getTime() - now.getTime();
+    // Volume: restore saved value or default to 60%
+    try{
+      const saved = parseFloat(localStorage.getItem('amor_volume'));
+      const initial = (!isNaN(saved) && saved >= 0 && saved <= 1) ? saved : 0.6;
+      if (music) music.volume = initial;
+      if (volumeSlider) { volumeSlider.value = Math.round(initial * 100); }
+      if (volLabel) volLabel.textContent = Math.round(initial * 100) + '%';
+    }catch(e){ /* ignore */ }
 
-          // Cálculos de tempo (Horas, Minutos, Segundos)
-          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-          // Formatação para garantir dois dígitos (ex: 05, 12)
-          const displayTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-          
-          btn.textContent = `Aguarde... (${displayTime})`;
-          
-          // Se o tempo for zero (ou quase zero), libera o botão
-          if (distance <= 1000) {
-            clearInterval(interval);
-            btn.textContent = 'Abra para receber 🎁';
-            btn.disabled = false;
-            btn.style.cursor = 'pointer';
-            btn.style.background = '#ffd34f';
-          }
-        }
-        
-        // Inicia o intervalo de 1 segundo
-        const interval = setInterval(updateCountdown, 1000);
-        updateCountdown(); // Chama imediatamente para evitar o delay inicial
-      }
-
-
-      // Listener para o botão de abrir o presente
-      const welcome = document.getElementById('welcomeScreen');
-      const giftBtn = document.getElementById('openGiftBtn');
-      
-      if(giftBtn){
-        giftBtn.addEventListener('click', () => {
-          welcome.style.opacity = '0';
-          setTimeout(() => { welcome.style.display = 'none'; }, 1200);
-        });
-        
-        // Inicia a contagem regressiva para 23:59
-        startCountdownToTime(); 
-      }
-      
-// ... final da sua IIFE principal ...
-      function openCard(){
-        const modal = document.getElementById('cardModal');
-        if(modal){ modal.style.display = 'flex'; modal.setAttribute('aria-hidden','false'); }
-      }
-      function closeCard(){
-        const modal = document.getElementById('cardModal');
-        if(modal){ modal.style.display = 'none'; modal.setAttribute('aria-hidden','true'); }
-      }
-      function showHug(){
-        const hug = document.getElementById('hugEmoji');
-        if(hug){
-          hug.style.display = 'block';
-          hug.animate([{ transform: 'scale(0.6)' }, { transform: 'scale(1.15)' }, { transform: 'scale(1)' }], { duration: 600, easing: 'ease-out' });
-          triggerCelebration();
-        }
-      }
-
-      // Expor no escopo global para garantir disponibilidade (evita ReferenceError em inline calls)
-      window.openCard = openCard;
-      window.closeCard = closeCard;
-      window.showHug = showHug;
-
-      // Add listeners quando DOM estiver pronto
-      document.getElementById('themeToggle').addEventListener('click', function(){ document.documentElement.classList.toggle('red-theme'); });
-
-      document.addEventListener('DOMContentLoaded', function(){
-        const openBtn = document.getElementById('openCardBtn');
-        const closeBtn = document.getElementById('closeCardBtn');
-        const hugBtn = document.getElementById('hugBtn');
-        if(openBtn) openBtn.addEventListener('click', window.openCard);
-        if(closeBtn) closeBtn.addEventListener('click', window.closeCard);
-        if(hugBtn) hugBtn.addEventListener('click', window.showHug);
-
-        // permitir fechar modal com Escape
-        document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ window.closeCard(); } });
+    if (volumeSlider){
+      volumeSlider.addEventListener('input', (e)=>{
+        const v = Math.max(0, Math.min(100, Number(e.target.value)));
+        const f = v/100;
+        if (music) music.volume = f;
+        if (volLabel) volLabel.textContent = v + '%';
+        try{ localStorage.setItem('amor_volume', String(f)); }catch(e){}
       });
-    })();
+    }
+
+    // ========= RELÓGIO "AGORA" =========
+    function updateNow(){
+      const d = new Date();
+      const pad = n => String(n).padStart(2, "0");
+      document.getElementById("now").textContent =
+        `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+    }
+    setInterval(updateNow, 1000);
+    updateNow();
+
+    // ========= CONTADOR =========
+    function updateCounter(){
+      const now = new Date();
+      let diff = Math.max(0, now - startDate);
+
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff -= days * (1000*60*60*24);
+
+      const hours = Math.floor(diff / (1000*60*60));
+      diff -= hours * (1000*60*60);
+
+      const mins = Math.floor(diff / (1000*60));
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("mins").textContent = mins;
+    }
+    setInterval(updateCounter, 1000);
+    updateCounter();
+
+    // ========= ABRIR CARTA =========
+    function toggleEnvelope(){
+      if (!envelope) return;
+      envelope.classList.toggle("isOpen");
+      const isOpen = envelope.classList.contains("isOpen");
+      envelope.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if (isOpen){
+        if (openHint) openHint.textContent = "respira… 💜";
+        // rola a carta pro topo quando abrir
+        setTimeout(()=> { if (letter) letter.scrollTop = 0; }, 250);
+        envelope.setAttribute('aria-label', 'Carta aberta');
+      } else {
+        if (openHint) openHint.textContent = "clica no selo pra abrir a carta ✨";
+        envelope.setAttribute('aria-label', 'Abrir carta');
+      }
+    }
+    if (envelope){
+      envelope.addEventListener("click", toggleEnvelope);
+      envelope.addEventListener("keydown", (e)=>{
+        if (e.key === "Enter" || e.code === 'Space' || e.key === ' '){
+          e.preventDefault();
+          toggleEnvelope();
+        }
+      });
+    }
+
+    // ========= CORAÇÕES =========
+    const heartChars = ["💛","💛","💛","✨","💛","💛","💛"];
+    function rand(min,max){ return Math.random()*(max-min)+min; }
+
+    function spawnHeart(){
+      if (!heartsEl) return;
+      const h = document.createElement("div");
+      h.className = "heart";
+      h.textContent = heartChars[Math.floor(Math.random()*heartChars.length)];
+      const left = rand(0, 100);
+      const size = rand(14, 26);
+      const dur = rand(HEART_MIN_DUR, HEART_MAX_DUR);
+
+      h.style.left = left + "vw";
+      h.style.fontSize = size + "px";
+      h.style.animationDuration = dur + "s";
+      h.style.opacity = String(rand(0.55, 0.95));
+
+      heartsEl.appendChild(h);
+      setTimeout(()=> h.remove(), (dur*1000) + 200);
+    }
+    let heartTimer = null;
+    function startHearts(){ if (!heartTimer && heartsEl) heartTimer = setInterval(spawnHeart, HEART_SPAWN_MS); }
+    function stopHearts(){ if (heartTimer){ clearInterval(heartTimer); heartTimer = null; } }
+    startHearts();
+    document.addEventListener('visibilitychange', ()=>{
+      if (document.hidden) stopHearts(); else startHearts();
+    });
+
+    // ========= PS (mensagem secreta) =========
+    if (psBtn && secret){
+      psBtn.addEventListener("click", ()=>{
+        secret.classList.toggle("show");
+        psBtn.textContent = secret.classList.contains("show") ? "ps: (fechar)" : "ps:";
+      });
+    }
+
+    // ========= MÚSICA =========
+    // Música: desabilita botão se não houver fonte configurada
+    if (musicBtn && music){
+      const hasAudio = !!(music.querySelector && music.querySelector('source')) || !!(music.src && music.src.length>0);
+      if (!hasAudio){
+        musicBtn.disabled = true;
+        musicBtn.setAttribute('aria-disabled','true');
+        musicBtn.title = 'Coloque um arquivo de música (musica.mp3) para habilitar a reprodução';
+      }
+
+      let isPlaying = false;
+      musicBtn.addEventListener("click", async ()=>{
+        if (!hasAudio){
+          alert("Coloca um arquivo de música no <audio> (musica.mp3) pra funcionar 💜");
+          return;
+        }
+        try{
+          if (!isPlaying){
+            await music.play();
+            isPlaying = true;
+            if (musicLabel) musicLabel.textContent = "pausar";
+          } else {
+            music.pause();
+            isPlaying = false;
+            if (musicLabel) musicLabel.textContent = "tocar";
+          }
+        } catch(e){
+          alert("Não foi possível reproduzir a música — verifique o arquivo e permissões.");
+        }
+      });
+    }
   </script>
-  <div class="floating-sunflowers" aria-hidden="true">
-    <span>🌻</span>
-    <span>🌻</span>
-    <span>🌻</span>
-  </div>
-<div class="sparkles" aria-hidden="true"></div>
-<script>
-// 1 — Criar brilhinhos
-const spark=document.querySelector('.sparkles');for(let i=0;i<18;i++){let s=document.createElement('span');s.style.left=Math.random()*100+'%';s.style.animationDelay=(Math.random()*3)+'s';spark.appendChild(s)}
-// 4 — Corações ao clicar
-document.addEventListener('click',e=>{let h=document.createElement('span');h.innerText='💖';h.style.position='fixed';h.style.left=e.clientX+'px';h.style.top=e.clientY+'px';h.style.pointerEvents='none';h.style.fontSize='1.4rem';h.style.opacity='1';h.style.transition='1s';document.body.appendChild(h);setTimeout(()=>{h.style.transform='translateY(-60px)';h.style.opacity='0'},10);setTimeout(()=>h.remove(),1100)})
-// 6 — Parallax girassóis
-window.addEventListener('scroll',()=>{document.documentElement.style.setProperty('--scroll-y', window.scrollY * -0.15 + 'px')})
-// 8 — Brilho na foto ao escrever assinatura
-setInterval(()=>{
-  const img=document.querySelector('img[src="https://i.imgur.com/fk9aHQ8.jpeg"]');
-  if(img) img.classList.add('polaroid-glow');
-  setTimeout(()=>{if(img) img.classList.remove('polaroid-glow')},1200)
-},4000);
-
-// 9 — Efeito confete/celebração
-function triggerCelebration() {
-  for(let i = 0; i < 15; i++) {
-    let confetti = document.createElement('div');
-    confetti.className = 'confetti';
-    confetti.style.left = Math.random() * 100 + 'vw';
-    confetti.style.top = '-10px';
-    confetti.style.background = ['#d94f70', '#ffd86b', '#FFD700', '#FF69B4'][Math.floor(Math.random() * 4)];
-    confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
-    confetti.style.animationDelay = (Math.random() * 0.5) + 's';
-    document.body.appendChild(confetti);
-    setTimeout(() => confetti.remove(), 5000);
-  }
-}
-
-// 10 — Efeito de celebração ao carregar
-window.addEventListener('load', () => {
-  setTimeout(() => triggerCelebration(), 2000);
-});
-</script>
-<script>
-// FUNÇÃO PARA SUMIR A TELA DE BOAS-VINDAS
-const welcome = document.getElementById('welcomeScreen');
-const giftBtn = document.getElementById('openGiftBtn');
-
-if(giftBtn){
-  giftBtn.addEventListener('click', () => {
-    welcome.style.opacity = '0';
-    setTimeout(() => { welcome.style.display = 'none'; }, 1200);
-  });
-}
-</script>
 </body>
 </html>
